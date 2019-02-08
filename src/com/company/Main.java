@@ -7,35 +7,33 @@ public class Main {
 
         //Creating objects here
         Scanner kbInput = new Scanner(System.in);
-        String number;
-        String text;
-        int count = 0;
+        String number1;
+        String number2;
+        String text1;
+        String text2;
+        String start;
 
         //Can keep texting until user enters EXIT
         System.out.println("Type START(not case sensitive) to start texting. Type EXIT(case sensitive) to stop texting.");
-        text = kbInput.nextLine();
+        start = kbInput.nextLine();
 
-            if(text.equalsIgnoreCase("START")){
+            if(start.equalsIgnoreCase("START")){
                 System.out.println("What is your number?");
-                number = kbInput.nextLine();
+                number1 = kbInput.nextLine();
+                System.out.println("What's your friend's number?");
+                number2 = kbInput.nextLine();
                 do{
                     System.out.println(" "); //For the space after m.format
-                    System.out.println("Send something");
-                    text = kbInput.nextLine();
-                    Message m = new Message(number, text);
-                    m.PrintText();
-                    count++;
-                        if(count == 5){
-                            System.out.println("Would you like to make a group chat?");
-                            String answer = kbInput.nextLine();
-                                if(answer.equalsIgnoreCase("yes")){
-                                    System.out.println("test");
-                                } else{
+                    System.out.println("Send something " + number1);
+                    text1 = kbInput.nextLine();
+                    System.out.println("Send something " + number2);
+                    text2 = kbInput.nextLine();
 
-                                }
-                        }
+                    Message m = new MessageList(number1, number2, text1, text2);
+                    ((MessageList) m).PrintConversion();
 
-                }while(!"EXIT".equals(text));
+
+                }while(!"EXIT".equals(start));
             }
     }
 }
